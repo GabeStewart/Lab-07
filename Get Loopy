@@ -1,0 +1,83 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Counting up by 1 from 0 to 30:");
+        for (int num = 0; num <= 30; num++) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nCounting down by 1 from 30 to 0:");
+        for (int num = 30; num >= 0; num--) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nCounting up by 3 from 0 to 18:");
+        for (int num = 0; num <= 18; num += 3) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nCounting down by 2 from 10 to 0:");
+        for (int num = 10; num >= 0; num -= 2) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("\nAscending:");
+        for (int num = 1; num <= 5; num++) {
+            for (int star = 1; star <= num; star++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nDescending:");
+        for (int num = 5; num >= 1; num--) {
+            for (int star = 1; star <= num; star++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nRectangle:");
+        for (int num = 1; num <= 5; num++) {
+            for (int star = 1; star <= 5; star++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        Scanner in = new Scanner(System.in);
+        double cDegrees = 0;
+        double fDegrees;
+
+        boolean validInput;
+        do {
+            validInput = true;
+            System.out.print("\nEnter your temperature in Celsius: ");
+            try {
+                cDegrees = Double.parseDouble(in.nextLine());
+                if (cDegrees < -273.15) {
+                    System.out.println("Temperature cannot be below absolute zero (-273.15°C).");
+                    validInput = false;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("That's not a valid temperature.");
+                validInput = false;
+            }
+        } while (!validInput);
+
+        fDegrees = cDegrees * 1.8 + 32;
+        if (fDegrees >= 212) {
+            System.out.println("\nThe degrees in Fahrenheit are: " + fDegrees);
+            System.out.println("This temperature is at or above boiling.");
+        } else if (fDegrees <= 32) {
+            System.out.println("\nThe degrees in Fahrenheit are: " + fDegrees);
+            System.out.println("This temperature is at or below freezing.");
+        } else {
+            System.out.println("The degrees in Fahrenheit are: " + fDegrees);
+        }
+    }
+}
